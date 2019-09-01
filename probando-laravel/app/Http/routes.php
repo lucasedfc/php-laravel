@@ -47,7 +47,8 @@ $age = null) {
     */
     return view('contacto.contacto')
     ->with('name', $name)
-    ->with('age', $age);
+    ->with('age', $age)
+    ->with('fruits', array('naranja', 'mandarina', 'banana', 'pera'));
 })->where([ //Validacion de formato
     'name' => '[A-Za-z]+',
     'age' => '[0-9]+'
