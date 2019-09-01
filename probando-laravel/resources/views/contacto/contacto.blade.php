@@ -1,3 +1,4 @@
+@include('contacto.header')
 {{-- Comment on server side --}}
 <?php // Another comment on server side ?>
 <!-- Comment on html -->
@@ -27,6 +28,8 @@ Tabla del {{$number}}</p>
     {{'Hi world'.$f}}<br>
     <?php $f++; ?>
 @endwhile
+
+@include('contacto.header', array('data' => $name))
 
 
 <h1>Fruits</h1>
