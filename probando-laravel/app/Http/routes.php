@@ -45,7 +45,7 @@ $age = 29) {
         "age" => $age
     ));
     */
-    return view('contacto')
+    return view('contacto.contacto')
     ->with('name', $name)
     ->with('age', $age);
 })->where([ //Validacion de formato
