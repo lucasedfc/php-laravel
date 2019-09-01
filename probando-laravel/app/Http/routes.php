@@ -39,10 +39,15 @@ Route::any('test-methods', function() {
 //Parametros
 Route::get('/contacto/{name?}/{age?}', function ($name = "Lucas",
 $age = 29) {
+    /*
     return view('contacto', array(
         "name" => $name,
         "age" => $age
     ));
+    */
+    return view('contacto')
+    ->with('name', $name)
+    ->with('age', $age);
 })->where([ //Validacion de formato
     'name' => '[A-Za-z]+',
     'age' => '[0-9]+'
