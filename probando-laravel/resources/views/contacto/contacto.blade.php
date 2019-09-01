@@ -13,3 +13,11 @@
 @endif
 <h3>Otra sintaxis: {!!$name!!}</h3>
 <h3>Otra sintaxis mas: <?=$age?></h3>
+
+<p>
+<?php $number = 3 ?>
+Tabla del {{$number}}</p>
+
+@for($i = 1; $i <= 10; $i++)
+{{$i.' x '.$number.' ='.($i*$number)}}<br>
+@endfor
