@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/hello', function () {
-    return 'Hello Zoquete';
+    return view('hello');
 });
 
 Route::get('/contacto-test', function () {
