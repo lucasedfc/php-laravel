@@ -21,3 +21,9 @@ Tabla del {{$number}}</p>
 @for($i = 1; $i <= 10; $i++)
 {{$i.' x '.$number.' ='.($i*$number)}}<br>
 @endfor
+
+<?php $f = 1 ?>
+@while($f <=7)
+    {{'Hi world'.$f}}<br>
+    <?php $f++; ?>
+@endwhile
