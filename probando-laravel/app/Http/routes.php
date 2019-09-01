@@ -38,7 +38,7 @@ Route::any('test-methods', function() {
 
 //Parametros
 Route::get('/contacto/{name?}/{age?}', function ($name = "Lucas",
-$age = 29) {
+$age = null) {
     /*
     return view('contacto', array(
         "name" => $name,
