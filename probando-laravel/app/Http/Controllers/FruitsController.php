@@ -18,7 +18,7 @@ class FruitsController extends Controller
         return 'Action from Oranges';
     }
 
-    public function getApples($param) {
-        return 'Action from Apples'.$param;
+    public function getApples() {
+        return 'Action from Apples';
     }
 }

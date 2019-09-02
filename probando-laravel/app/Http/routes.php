@@ -54,10 +54,11 @@ $age = null) {
     'age' => '[0-9]+'
 ]);
 
-/*
-Route::get('/fruits', 'FruitsController@index');
-Route::get('/oranges', 'FruitsController@oranges');
-Route::get('/apples', 'FruitsController@apples');
-*/
 
-Route::controller('fruits', 'FruitsController');
+Route::get('/fruits', 'FruitsController@getIndex');
+Route::get('/oranges/{admin?}', ['middleware' => 'IsAdmin',
+                        'uses' => 'FruitsController@getOranges'
+                        ]);
+Route::get('/apples', 'FruitsController@getApples');
+
+//Route::controller('fruits', 'FruitsController');
