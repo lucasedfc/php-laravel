@@ -59,7 +59,8 @@ Route::group(['prefix' => 'fruteria'], function () {
 
     Route::get('/fruits', 'FruitsController@getIndex');
     Route::get('/oranges/{admin?}', ['middleware' => 'IsAdmin',
-                            'uses' => 'FruitsController@getOranges'
+                            'uses' => 'FruitsController@getOranges',
+                            'as' => 'orangesAlias'
                             ]);
     Route::get('/apples', 'FruitsController@getApples');
 });

@@ -16,7 +16,8 @@ class IsAdmin
     public function handle($request, Closure $next)
     {
         if(is_null($request->route('admin'))) {
-            return redirect('fruteria/apples');
+            //return redirect('fruteria/apples');
+            return redirect()->action('FruitsController@getApples')->withInput();
         }
         return $next($request);
     }
