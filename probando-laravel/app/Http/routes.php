@@ -56,3 +56,5 @@ $age = null) {
 
 
 Route::get('/fruits', 'FruitsController@index');
+Route::get('/oranges', 'FruitsController@oranges');
+Route::get('/apples', 'FruitsController@apples');

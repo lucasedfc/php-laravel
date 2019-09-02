@@ -13,4 +13,12 @@ class FruitsController extends Controller
         return view('fruits.index')
         ->with('fruits', array('naranja', 'mandarina', 'banana', 'pera'));
     }
+
+    public function oranges() {
+        return 'Action from Oranges';
+    }
+
+    public function apples() {
+        return 'Action from Apples';
+    }
 }
