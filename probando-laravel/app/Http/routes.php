@@ -55,10 +55,12 @@ $age = null) {
 ]);
 
 
-Route::get('/fruits', 'FruitsController@getIndex');
-Route::get('/oranges/{admin?}', ['middleware' => 'IsAdmin',
-                        'uses' => 'FruitsController@getOranges'
-                        ]);
-Route::get('/apples', 'FruitsController@getApples');
+Route::group(['prefix' => 'fruteria'], function () {
 
+    Route::get('/fruits', 'FruitsController@getIndex');
+    Route::get('/oranges/{admin?}', ['middleware' => 'IsAdmin',
+                            'uses' => 'FruitsController@getOranges'
+                            ]);
+    Route::get('/apples', 'FruitsController@getApples');
+});
 //Route::controller('fruits', 'FruitsController');

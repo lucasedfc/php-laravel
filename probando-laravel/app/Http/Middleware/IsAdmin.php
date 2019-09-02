@@ -16,7 +16,7 @@ class IsAdmin
     public function handle($request, Closure $next)
     {
         if(is_null($request->route('admin'))) {
-            return redirect('apples');
+            return redirect('fruteria/apples');
         }
         return $next($request);
     }
