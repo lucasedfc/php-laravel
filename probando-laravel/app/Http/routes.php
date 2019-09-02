@@ -54,7 +54,10 @@ $age = null) {
     'age' => '[0-9]+'
 ]);
 
-
+/*
 Route::get('/fruits', 'FruitsController@index');
 Route::get('/oranges', 'FruitsController@oranges');
 Route::get('/apples', 'FruitsController@apples');
+*/
+
+Route::controller('fruits', 'FruitsController');

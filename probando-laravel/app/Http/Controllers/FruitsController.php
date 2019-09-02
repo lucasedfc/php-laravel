@@ -9,16 +9,16 @@ use App\Http\Requests;
 class FruitsController extends Controller
 {
     // Action that return a view
-    public function index() {
+    public function getIndex() {
         return view('fruits.index')
         ->with('fruits', array('naranja', 'mandarina', 'banana', 'pera'));
     }
 
-    public function oranges() {
+    public function getOranges() {
         return 'Action from Oranges';
     }
 
-    public function apples() {
-        return 'Action from Apples';
+    public function getApples($param) {
+        return 'Action from Apples'.$param;
     }
 }
