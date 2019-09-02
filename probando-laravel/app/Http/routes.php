@@ -53,3 +53,6 @@ $age = null) {
     'name' => '[A-Za-z]+',
     'age' => '[0-9]+'
 ]);
+
+
+Route::get('/fruits', 'FruitsController@index');
