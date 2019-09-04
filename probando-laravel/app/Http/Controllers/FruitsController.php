@@ -21,4 +21,13 @@ class FruitsController extends Controller
     public function getApples() {
         return 'Action from Apples';
     }
+
+    public function receiveFormData(Request $request){
+        $data = $request;
+
+        //var_dump($request);
+        //return 'The name fruit is '.$data['name'];
+        return 'The name fruit is '.$request->input('description');
+        die();
+    }
 }

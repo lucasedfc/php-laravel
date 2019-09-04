@@ -65,3 +65,6 @@ Route::group(['prefix' => 'fruteria'], function () {
     Route::get('/apples', 'FruitsController@getApples');
 });
 //Route::controller('fruits', 'FruitsController');
+
+//Receive Data
+Route::post('/receive', 'FruitsController@receiveFormData');
