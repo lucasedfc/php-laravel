@@ -58,4 +58,21 @@ class NotesController extends Controller
         return redirect()->action('NotesController@getIndex')->with('status', 'Note Removed Correctly');
     }
 
+    public function postUpdateNote($id, Request $request) {
+        $note = DB::table('notes')->where('id', $id)->update(array(
+            'title' => $request->input('title'),
+            'description' => $request->input('description')
+        ));
+
+        return redirect()->action('NotesController@getIndex')->with('status', 'Note Updated Correctly');
+    }
+
+    public function getUpdateNote($id) {
+        $note = DB::table('notes')->where('id', $id)->first();
+
+        return view('notes.saveNote', array(
+            'note' => $note
+        ));
+    }
+
 }
