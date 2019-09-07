@@ -49,4 +49,13 @@ class NotesController extends Controller
     public function getSaveNote() {
         return view( 'notes.saveNote');
     }
+
+    public function getDeleteNote($id){
+        //Delete specific note
+        $note = DB::table('notes')->where('id', $id)->delete();
+
+        //var_dump($note);
+        return redirect()->action('NotesController@getIndex')->with('status', 'Note Removed Correctly');
+    }
+
 }
