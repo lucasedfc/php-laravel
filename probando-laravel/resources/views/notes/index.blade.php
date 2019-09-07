@@ -4,6 +4,11 @@
 
 <ul>
     @foreach($notes as $note)
-        <li>{{$note->title}}</li>
+        <li>
+            <ul>
+                <li>{{$note->title}}</li>
+                <li><a href="{{url('/notes/note/'.$note->id)}}">View This Note</a></li>
+            </ul>
+        </li>
     @endforeach
 </ul>

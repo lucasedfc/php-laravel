@@ -69,4 +69,4 @@ Route::group(['prefix' => 'fruteria'], function () {
 //Receive Data
 Route::post('/receive', 'FruitsController@receiveFormData');
 
-Route::get('/notes', 'NotesController@getIndex');    
+Route::controller('/notes', 'NotesController');
