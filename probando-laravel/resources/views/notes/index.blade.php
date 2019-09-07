@@ -1,5 +1,6 @@
 <h1>Notes Application</h1>
 
+<a href="{{url('/notes/save-note')}}">Add Note</a>
 <h3>Notes List</h3>
 
 <ul>

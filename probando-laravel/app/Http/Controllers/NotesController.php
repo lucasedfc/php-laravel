@@ -12,7 +12,7 @@ class NotesController extends Controller
     public function getIndex() {
 
         //get all notes
-        $notes = DB::table('notes')->get();
+        $notes = DB::table('notes')->orderBy('id', 'desc')->get();
         //var_dump($notes);
         /*
         foreach ($notes as $note) {
@@ -25,11 +25,9 @@ class NotesController extends Controller
 
     public function getNote($id){
         //Get specific note
-        $note = DB::table('notes')->select('id', 'title', 'description  ')->where('id', $id)->first();
+        $note = DB::table('notes')->select('id', 'title', 'description')->where('id', $id)->first();
 
         //var_dump($note);
-        
-
         if(empty($note)) {
             return redirect()->action('NotesController@getIndex');
         }
@@ -37,5 +35,18 @@ class NotesController extends Controller
         return view('notes.note', array(
             'note' => $note
         ));
+    }
+
+    public function postNote(Request $request) {
+        
+        $note = DB::table('notes')->insert(array(
+            'title'=> $request->input('title'),
+            'description'=> $request->input('description')
+        ));
+        return redirect()->action('NotesController@getIndex');
+    }
+
+    public function getSaveNote() {
+        return view( 'notes.saveNote');
     }
 }
