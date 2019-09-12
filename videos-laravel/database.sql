@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXIST videoslaravel;
+CREATE DATABASE IF NOT EXISTS videoslaravel;
 USE videoslaravel;
 
 CREATE TABLE users(
@@ -11,12 +11,12 @@ CREATE TABLE users(
     image       varchar(255),
     created_at  datetime,
     updated_at  datetime,
-    remember_token  varchar(255)
+    remember_token  varchar(255),
     CONSTRAINT pk_users PRIMARY KEY(id)
 )ENGINE=InnoDb;
 
 CREATE TABLE videos(
-    id          int(255) auto_increment NOt NULL,
+    id          int(255) auto_increment NOT NULL,
     user_id     int(255) NOT NULL,
     title      varchar(255),
     description text,
@@ -37,6 +37,6 @@ CREATE TABLE comments(
     created_at  datetime,
     updated_at  datetime,
     CONSTRAINT pk_comment PRIMARY KEY(id),
-    CONSTRAINT fk_comment FOREIGN KEY(video_id) REFERENCES videos(id)
+    CONSTRAINT fk_comment FOREIGN KEY(video_id) REFERENCES videos(id),
     CONSTRAINT fk_comment_user FOREIGN(user_id) REFERENCES users(id)
 )ENGINE=InnoDb;
