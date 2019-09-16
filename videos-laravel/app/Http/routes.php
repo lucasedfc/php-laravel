@@ -18,3 +18,11 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+// Video Controller Routes
+
+Route::get('/create-video', array(
+    'as' => 'createVideo',
+    'middleware' => 'auth',
+    'uses' => 'VideoController@createVideo'
+));
