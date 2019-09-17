@@ -5,15 +5,28 @@
 <div class="container">
     <div class="row">
         <h2>Create Video</h2>
-        <form action="" method="POST" ectype="multipart/form-data"
+        <form action="{{ route('saveVideo') }}" method="POST" ectype="multipart/form-data"
         class="col-lg-7">
-            <div class="form-group">
+        {!! csrf_field() !!}  
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
+            </div>
+    
+
+        @endif
+        <div class="form-group">
                 <label for="title">Title</label>
-                <input id="title" type="text" class="form-control" name="title">
+                <input id="title" type="text" class="form-control" name="title" value="{{old('title')}}">
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" class="form-control" name="description"></textarea>
+                <textarea id="description" class="form-control" name="description">{{old('description')}}</textarea>
             </div>
             <div class="form-group">
                 <label for="image">Image</label>
