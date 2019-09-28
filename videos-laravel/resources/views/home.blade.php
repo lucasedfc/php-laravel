@@ -25,7 +25,7 @@
                         @endif
 
                         <div class="data">
-                            <h4 class="video-title"><a href="">{{$video->title}}</a></h4>
+                            <h4 class="video-title"><a href="{{route('videoDetail', ['video_id' => $video->id])}}">{{$video->title}}</a></h4>
                             <p>{{$video->user->name.' '.$video->user->surname}}</p>
                         </div>
 
