@@ -35,3 +35,8 @@ Route::post('/save-video', array(
     'middleware' => 'auth',
     'uses' => 'VideoController@saveVideo'
 ));
+
+Route::get('/thumbnail/{filename}', array(
+    'as' => 'imageVideo',
+    'uses' => 'VideoController@getImage'
+));

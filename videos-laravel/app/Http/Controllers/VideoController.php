@@ -7,8 +7,8 @@ use App\Http\Requests;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Symphony\Component\HttpFoundation\Response;
-
+//use Symphony\Component\HttpFoundation\Response;
+use Illuminate\Http\Response;
 use App\Video;
 use App\Comment;
 
@@ -54,5 +54,10 @@ class VideoController extends Controller
         return redirect()->route('home')->with(array(
             'message' => 'Video Upload Correctly'
         ));
+    }
+
+    public function getImage($filename) {
+        $file = Storage::disk('images')->get($filename);
+        return new Response($file, 200);
     }
 }

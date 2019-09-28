@@ -1,0 +1,26 @@
+body {
+    font-family: 'Open Sans', 'Roboto' !important;
+}
+
+.video-image-mask {
+    width: 190px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.video-image-mask .video.image {
+    width: 100%;
+}
+
+#video-list .panel-body {
+    padding-left: 0px;
+}
+
+.video-title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.video-title a {
+    color: #444
+}
