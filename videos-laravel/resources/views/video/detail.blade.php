@@ -7,10 +7,24 @@
     <div class="col-md-8">
         <!-- Video -->
         <video id="video-player" controls>
-        <source src="{{ route('videoFile', ['filename' => $video->video_path]) }}">    
+        <source src="{{ route('videoFile', ['filename' => $video->video_path]) }}">  
         Your browser does not support the video tag.
         </video>
         <!-- Description --> 
+        <div class="panel panel-default video-data">
+            <div class="panel-heading">
+                <div class="panel-title">
+                        Upload By: <strong>{{$video->user->name. ' ' .$video->user->surname}}</strong> 
+                        At {{$video->created_at}}
+                </div>
+
+            </div>
+
+            <div class="panel-body">
+                {{$video->description}}
+
+            </div>
+        </div>
 
         <!-- Comments -->
     </div>
