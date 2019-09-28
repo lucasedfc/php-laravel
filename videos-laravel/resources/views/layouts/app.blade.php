@@ -68,7 +68,7 @@
                         <li><a href="{{ url('/register') }}">Registro</a></li>
                     @else
                     <li>
-                        <a href="#">Subir Video</a>
+                        <a href="{{ url('/create-video')}}">Subir Video</a>
                     </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

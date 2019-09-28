@@ -17,7 +17,10 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', array(
+    'as' => 'home',
+    'uses' => 'HomeController@index'
+));
 
 // Video Controller Routes
 

@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <h2>Create Video</h2>
-        <form action="{{ route('saveVideo') }}" method="POST" ectype="multipart/form-data"
+        <form action="{{ route('saveVideo') }}" method="POST" enctype="multipart/form-data"
         class="col-lg-7">
         {!! csrf_field() !!}  
 
