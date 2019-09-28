@@ -6,7 +6,10 @@
     <hr>
     <div class="col-md-8">
         <!-- Video -->
-
+        <video id="video-player" controls>
+        <source src="{{ route('videoFile', ['filename' => $video->video_path]) }}">    
+        Your browser does not support the video tag.
+        </video>
         <!-- Description --> 
 
         <!-- Comments -->
