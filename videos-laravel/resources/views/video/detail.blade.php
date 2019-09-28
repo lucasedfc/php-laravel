@@ -15,7 +15,7 @@
             <div class="panel-heading">
                 <div class="panel-title">
                         Upload By: <strong>{{$video->user->name. ' ' .$video->user->surname}}</strong> 
-                        At {{$video->created_at}}
+                        At {{\FormatTime::LongTimeFilter($video->created_at)}}
                 </div>
 
             </div>
