@@ -27,6 +27,7 @@
         </div>
 
         <!-- Comments -->
+            @include('video.comments')
     </div>
 
 </div>
