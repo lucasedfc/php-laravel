@@ -61,3 +61,9 @@ Route::get('/delete-comment/{comment_id}', array(
     'middleware' => 'auth',
     'uses' => 'CommentController@delete'
 ));
+
+Route::get('/delete-video/{video_id}', array(
+    'as' => 'videoDelete',
+    'middleware' => 'auth',
+    'uses' => 'VideoController@delete'
+));

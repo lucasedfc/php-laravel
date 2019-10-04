@@ -30,10 +30,30 @@
                         </div>
 
                         <!-- Button Action -->
-                        <a href="" class="btn btn-success">View</a>
+                        <a href="{{route('videoDetail', ['video_id' => $video->id])}}" class="btn btn-success">View</a>
                         @if(Auth::check() && Auth::user()->id == $video->user->id) 
                         <a href="" class="btn btn-warning">Edit</a>
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <a href="#video-modal{{$video->id}}" role="button" class="btn btn-danger" data-toggle="modal">Delete</a>
+                        
+                        <!-- Modal / Ventana / Overlay en HTML -->
+                        <div id="video-modal{{$video->id}}" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title">¿Are you sure?</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>¿Do you want to delete this video?</p>
+                                            <p class="text-warning"><small>{{$video->title}}</small></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <a href="{{url('/delete-video/'.$video->id)}}" type="button" class="btn btn-danger">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         @endif
                     </div>
                 </div>
