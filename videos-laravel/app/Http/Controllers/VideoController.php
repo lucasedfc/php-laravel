@@ -130,6 +130,9 @@ class VideoController extends Controller
 
         $image = $request->file('image');
         if($image) {
+            // Delete old image
+            Storage::disk('images')->delete($video->image);
+            // update image
             $imagen_path = time().$image->getClientOriginalName();
             \Storage::disk('images')->put($imagen_path, \File::get($image));
             $video->image = $imagen_path;
@@ -137,6 +140,9 @@ class VideoController extends Controller
 
         $video_file = $request->file('video');
         if($video_file) {
+            // Delete old video
+            Storage::disk('videos')->delete($video->video_path);
+            // Update video
             $video_path = time().$video_file->getClientOriginalName();
             \Storage::disk('videos')->put($video_path, \File::get($video_file));
 
