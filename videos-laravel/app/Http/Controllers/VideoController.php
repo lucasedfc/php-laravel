@@ -103,4 +103,52 @@ class VideoController extends Controller
 
         return redirect()->route('home')->with($message);
     }
+
+    public function edit($id) {
+        $user =  \Auth::user();
+        $video = Video::findOrFail($id);
+        if($user && $video->user_id == $user->id) {
+            return view('video.edit', array(
+                'video' => $video
+            )); 
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
+    public function update($id, Request $request) {
+        $validate = $this->validate($request, array(
+            'title' => 'required|min:5',
+            'description' => 'required|max:100',
+            'video' => 'mimes:mp4'
+        ));
+        $user = \Auth::user();
+        $video = Video::findOrFail($id);
+        $video->user_id = $user->id;
+        $video->title = $request->input('title');
+        $video->description = $request->input('description');
+
+        $image = $request->file('image');
+        if($image) {
+            $imagen_path = time().$image->getClientOriginalName();
+            \Storage::disk('images')->put($imagen_path, \File::get($image));
+            $video->image = $imagen_path;
+        } 
+
+        $video_file = $request->file('video');
+        if($video_file) {
+            $video_path = time().$video_file->getClientOriginalName();
+            \Storage::disk('videos')->put($video_path, \File::get($video_file));
+
+            $video->video_path = $video_path;
+        }
+
+        $video->update(); //update video to db
+
+        return redirect()->route('home')->with(array(
+            'message' => 'Video updated'
+        ));
+
+
+    }
 }
