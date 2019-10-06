@@ -30,10 +30,10 @@
                         </div>
 
                         <!-- Button Action -->
-                        <a href="{{route('videoDetail', ['video_id' => $video->id])}}" class="btn btn-success">View</a>
+                        <a href="{{route('videoDetail', ['video_id' => $video->id])}}" title="Play" class="btn btn-success"><i class="fa fa-play"></i></a>
                         @if(Auth::check() && Auth::user()->id == $video->user->id) 
-                        <a href="" class="btn btn-warning">Edit</a>
-                        <a href="#video-modal{{$video->id}}" role="button" class="btn btn-danger" data-toggle="modal">Delete</a>
+                        <a href="" class="btn btn-warning"><i class="fa fa-edit" title="Edit"></i></a>
+                        <a href="#video-modal{{$video->id}}" role="button" title="Delete" class="btn btn-danger" data-toggle="modal"><i class="fa fa-trash"></i></a>
                         
                         <!-- Modal / Ventana / Overlay en HTML -->
                         <div id="video-modal{{$video->id}}" class="modal fade">

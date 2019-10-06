@@ -24,3 +24,14 @@ body {
 .video-title a {
     color: #444
 }
+
+nav.navbar.navbar-default.navbar-static-top {
+    background-color: #448AFF !important;
+}
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: #3174ed;
+}
