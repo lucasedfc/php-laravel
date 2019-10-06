@@ -79,3 +79,8 @@ Route::post('/update-video/{id}', array(
     'middleware' => 'auth',
     'uses' => 'VideoController@update'
 ));
+
+Route::get('/search/{search_string?}', array(
+    'as' => 'videoSearch',
+    'uses' => 'VideoController@search'
+));

@@ -52,7 +52,7 @@
                     <li><a href="{{ url('/home') }}">Inicio</a></li>
                 </ul>
 
-                <form  action="" class="navbar-form navbar-left" role="search">
+            <form class="navbar-form navbar-left" role="search" action="{{url('/search')}}">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Buscar" name="search">
                         <button type="submit" class="btn btn-default">

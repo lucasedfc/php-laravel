@@ -4,11 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="container">
-            @if(session('message'))
-                <div class="alert alert-success">
-                    {{session('message')}}
-                </div>
-            @endif
+            <h2>Search: {{$search}}</h2>
 
             @include('video.videosList')
         </div>

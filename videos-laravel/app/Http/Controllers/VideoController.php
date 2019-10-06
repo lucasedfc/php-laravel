@@ -157,4 +157,20 @@ class VideoController extends Controller
 
 
     }
+
+    public function search($search = null) {
+
+        if(is_null($search)) {
+            $search = \Request::get('search');
+            return redirect()->route('videoSearch', array(
+                'search_string' => $search
+            ));
+        }
+
+        $result = Video::where('title', 'LIKE', '%'.$search.'%')->paginate(1);
+        return view('video.search', array(
+            'videos' => $result,
+            'search' => $search
+        ));
+    }
 }
