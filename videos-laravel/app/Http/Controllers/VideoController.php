@@ -158,7 +158,7 @@ class VideoController extends Controller
 
     }
 
-    public function search($search = null) {
+    public function search($search = null, $filter = null) {
 
         if(is_null($search)) {
             $search = \Request::get('search');
@@ -167,7 +167,36 @@ class VideoController extends Controller
             ));
         }
 
-        $result = Video::where('title', 'LIKE', '%'.$search.'%')->paginate(1);
+        if(is_null($filter) && \Request::get('filter') && !is_null($search)) {
+            $filter = \Request::get('filter');
+            return redirect()->route('videoSearch', array(
+                'search_string' => $search,
+                'filter' => $filter
+            ));
+
+        }
+
+        $column = 'id';
+        $order = 'desc';
+
+        if(!is_null($filter)){
+            if($filter == 'new'){
+                $column = 'id';
+                $order = 'desc';
+            }
+            if($filter == 'old'){
+                $column = 'id';
+                $order = 'asc';
+            }
+            if($filter == 'alfa'){
+                $column = 'title';
+                $order = 'asc';
+            }
+        }
+
+        $result = Video::where('title', 'LIKE', '%'.$search.'%')->orderBy($column, $order)->paginate(5);
+
+
         return view('video.search', array(
             'videos' => $result,
             'search' => $search

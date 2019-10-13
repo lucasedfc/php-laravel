@@ -35,3 +35,7 @@ nav.navbar.navbar-default.navbar-static-top {
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
     background-color: #3174ed;
 }
+
+input.filter {
+    margin-top: 5px !important;
+}

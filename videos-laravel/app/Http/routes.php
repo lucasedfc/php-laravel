@@ -80,7 +80,12 @@ Route::post('/update-video/{id}', array(
     'uses' => 'VideoController@update'
 ));
 
-Route::get('/search/{search_string?}', array(
+Route::get('/search/{search_string?}/{filter?}', array(
     'as' => 'videoSearch',
     'uses' => 'VideoController@search'
 ));
+
+// delete cache
+Route::get('/clear-cache', function() {
+    $code = Artisan::call('cache:clear');
+});
