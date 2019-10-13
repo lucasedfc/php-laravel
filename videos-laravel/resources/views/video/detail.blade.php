@@ -14,7 +14,7 @@
         <div class="panel panel-default video-data">
             <div class="panel-heading">
                 <div class="panel-title">
-                        Upload By: <strong>{{$video->user->name. ' ' .$video->user->surname}}</strong> 
+                        Upload By: <strong><a href="{{route('channel', ['user_id' => $video->user->id])}}">{{$video->user->name. ' ' .$video->user->surname}}</a></strong> 
                         At {{\FormatTime::LongTimeFilter($video->created_at)}}
                 </div>
 
